@@ -27,6 +27,12 @@ int RunningProcesses();
 std::string OperatingSystem();
 std::string Kernel();
 
+// utill
+template <class T>
+T readKeyValFromFile(const std::string& _key, const std::string& file);
+
+std::vector<std::string> readFileToVector(const char _seperator, const std::string& file);
+
 // CPU
 enum CPUStates {
   kUser_ = 0,
@@ -40,7 +46,8 @@ enum CPUStates {
   kGuest_,
   kGuestNice_
 };
-std::vector<std::string> CpuUtilization();
+// std::vector<std::string> CpuUtilization();
+float CpuUtilization();
 long Jiffies();
 long ActiveJiffies();
 long ActiveJiffies(int pid);
@@ -50,7 +57,7 @@ long IdleJiffies();
 std::string Command(int pid);
 std::string Ram(int pid);
 std::string Uid(int pid);
-std::string User(int pid);
+std::string User(std::string uid);
 long int UpTime(int pid);
 };  // namespace LinuxParser
 
